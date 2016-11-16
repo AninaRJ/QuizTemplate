@@ -11,11 +11,6 @@ import {NewTemplateComponent} from './new-template.component';
 				<button (click)="displayNewTemplate()">New Template</button>
 				<div *ngIf="newTemplateFlag">
 					<new-template-html></new-template-html>
-					<div>
-						<button (click)="resetTemplate()">Reset</button>
-						<button (click)="createHTML()">Create HTML</button>
-						<button (click)="viewHTML()">View as HTML</button>
-					</div>
 				</div>
 			</body>
 		</html>
