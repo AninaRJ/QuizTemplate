@@ -8,7 +8,8 @@ import {NewTemplateComponent} from './new-template.component';
 			<head><title><h1>Quiz Template</h1></title></head>
 			<body>
 				<div>Create New Template</div>
-				<button (click)="displayNewTemplate()">New Template</button>
+				<button (click)="toggleFlag(true)">New Template</button>
+				<button (click)="toggleFlag(false)">Cancel</button>
 				<div *ngIf="newTemplateFlag">
 					<new-template-html></new-template-html>
 				</div>
@@ -24,7 +25,7 @@ export class AppComponent{
 		this.newTemplateFlag = false;
 	}
 	
-	displayNewTemplate(): void {
-		this.newTemplateFlag = true;
+	toggleFlag(toggFlag:boolean): void {
+		this.newTemplateFlag = toggFlag;
     }
 }
