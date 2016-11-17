@@ -7,9 +7,11 @@ import {NewTemplateComponent} from './new-template.component';
 		<html>
 			<head><title><h1>Quiz Template</h1></title></head>
 			<body>
-				<div>Create New Template</div>
-				<button (click)="toggleFlag(true)">New Template</button>
-				<button (click)="toggleFlag(false)">Cancel</button>
+				<div class="mainLayout">
+					<h1>Create New Template</h1>
+					<button md-raised-button color="primary" (click)="toggleFlag(true)">Create</button>
+					<button md-raised-button color="primary" (click)="toggleFlag(false)">Cancel</button>
+				</div>
 				<div *ngIf="newTemplateFlag">
 					<new-template-html></new-template-html>
 				</div>
