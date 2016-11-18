@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {TemplateComponent} from './template';
+import {AnswerComponent} from './answer.component';
 
 const TEMPLATE: string = '<!DOCTYPE html>\n<html>\n<head>\n\t<meta charset="ISO-8859-1">\n\t<title>Quiz Name</title>\n</head>\n<body>\n\t\n</body>\n</html>';
 
@@ -9,12 +10,7 @@ const TEMPLATE: string = '<!DOCTYPE html>\n<html>\n<head>\n\t<meta charset="ISO-
 					<md-textarea placeholder="Template HTML" rows="15" cols="90" [(ngModel)] = "template"></md-textarea>
 					
 					<div>
-						<label><h4>Answer Target</h4></label>
-						<md-radio-group>
-						  <md-radio-button value="textInput">Text Input</md-radio-button>
-						  <md-radio-button value="urlChange">URL Change</md-radio-button>
-						  <md-radio-button value="clickEvent">Click Event</md-radio-button>
-						</md-radio-group>
+						<answer-view></answer-view>
 						<label><h4>Upload image(s)</h4></label>
 						<input type="file" id="theFile" />
 					</div>
@@ -25,8 +21,9 @@ const TEMPLATE: string = '<!DOCTYPE html>\n<html>\n<head>\n\t<meta charset="ISO-
 						<button md-raised-button color="primary" (click)="viewHTML()">View as HTML</button>
 					</div>
 				</div>
+				{{textAnswer}}
 				<div *ngIf="viewFlag">
-					<view-template [editedTemplate]="template"></view-template>
+					<view-template [editedTemplate]="template" (textAnswer) ="textAnswer"></view-template>
 				</div>`
 })
 
