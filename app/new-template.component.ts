@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {TemplateComponent} from './template';
 import {AnswerComponent} from './answer.component';
+import {TemplateService} from './template.service';
+
 
 const TEMPLATE: string = '<!DOCTYPE html>\n<html>\n<head>\n\t<meta charset="ISO-8859-1">\n\t<title>Quiz Name</title>\n</head>\n<body>\n\t\n</body>\n</html>';
 
@@ -12,7 +14,8 @@ const TEMPLATE: string = '<!DOCTYPE html>\n<html>\n<head>\n\t<meta charset="ISO-
 					<div>
 						<answer-view></answer-view>
 						<label><h4>Upload image(s)</h4></label>
-						<input type="file" id="theFile" />
+						<input type="file" id="image_uploads" name="uploads[]" multiple="multiple"/>
+						
 					</div>
 					
 					<div class="buttonArea">
@@ -21,7 +24,6 @@ const TEMPLATE: string = '<!DOCTYPE html>\n<html>\n<head>\n\t<meta charset="ISO-
 						<button md-raised-button color="primary" (click)="viewHTML()">View as HTML</button>
 					</div>
 				</div>
-				{{textAnswer}}
 				<div *ngIf="viewFlag">
 					<view-template [editedTemplate]="template" (textAnswer) ="textAnswer"></view-template>
 				</div>`
@@ -31,11 +33,17 @@ export class NewTemplateComponent{
 	template:string = TEMPLATE;
 	viewFlag:boolean = false;
 	
+	constructor(private templateService:TemplateService){}
+	
 	resetTemplate():void{
 		this.template = TEMPLATE;
 	}
 	
 	viewHTML(): void{
 		this.viewFlag = true;
+	}
+	
+	createHTML(): void{
+	  
 	}
 }
